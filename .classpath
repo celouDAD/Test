@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="libs/json-20180813.jar"/>
+	<classpathentry kind="lib" path="libs/poi-4.1.2.jar"/>
+	<classpathentry kind="lib" path="libs/poi-ooxml-4.1.2.jar"/>
+	<classpathentry kind="lib" path="libs/mysql-connector-java-8.0.17.jar"/>
+	<classpathentry kind="lib" path="libs/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="libs/xmlbeans-3.1.0.jar"/>
+	<classpathentry kind="lib" path="libs/commons-collections4-4.4.jar"/>
+	<classpathentry kind="lib" path="libs/poi-examples-4.1.2.jar"/>
+	<classpathentry kind="lib" path="libs/poi-excelant-4.1.2.jar"/>
+	<classpathentry kind="lib" path="libs/poi-ooxml-schemas-4.1.2.jar"/>
+	<classpathentry kind="lib" path="libs/poi-scratchpad-4.1.2.jar"/>
+	<classpathentry kind="lib" path="libs/commons-compress-1.18.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/OpenCV"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
