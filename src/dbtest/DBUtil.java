@@ -19,7 +19,7 @@ public class DBUtil {
 	 * JDBC
 	 */
 	private final String DATA = "datafactory_db";
-	private final String HOST = "localhost";
+	private final String HOST = "123.57.87.210";
 	private static DBUtil instance = null;
 	private final String DRIVER = "com.mysql.cj.jdbc.Driver";
 	private final String URL = "jdbc:mysql://" + HOST + "/" + DATA
@@ -75,10 +75,10 @@ public class DBUtil {
 	public ResultSet getSet(String sql, int type, Object... params) {
 		int j = 0;
 		if (params.length == 1 && params.length % 2 == 0) {
-			System.out.println("type=1");
+			//System.out.println("type=1");
 			j = 1;
 		} else if (params.length > 1 && params.length % 2 == 0) {
-			System.out.println("type=2");
+			//System.out.println("type=2");
 			j = params.length / 2;
 		}
 

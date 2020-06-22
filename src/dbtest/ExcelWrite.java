@@ -19,14 +19,14 @@ public class ExcelWrite {
 	 */
 	public static void main(String[] args) throws Exception {
 
-		File file = new File("D:/p_adjust.xlsx");
+		File file = new File("/Users/celoudad/Documents/p_adjust.xlsx");
 		// 创建Excel文件薄
 		XSSFWorkbook workbook = new XSSFWorkbook();
 		Sheet sheet = null;
 		FileOutputStream stream = null;
 		// 创建一个文件
 		if (file.exists()) {
-			workbook = new XSSFWorkbook("D:/p_adjust.xlsx");
+			workbook = new XSSFWorkbook("/Users/celoudad/Documents/p_adjust.xlsx");
 			System.out.println("文件已存在");
 
 			stream = FileUtils.openOutputStream(file);
@@ -63,14 +63,14 @@ public class ExcelWrite {
 	}
 	
 	public void stat(String vs,String geneID,String p_adjust,String musName,int times) throws IOException {
-		File file = new File("D:/p_adjust.xlsx");
+		File file = new File("/Users/celoudad/Documents/p_adjust.xlsx");
 		// 创建Excel文件薄
 		XSSFWorkbook workbook = new XSSFWorkbook();
 		Sheet sheet = null;
 		FileOutputStream stream = null;
 		// 创建一个文件
 		if (file.exists()) {
-			workbook = new XSSFWorkbook("D:/p_adjust.xlsx");
+			workbook = new XSSFWorkbook("/Users/celoudad/Documents/p_adjust.xlsx");
 			System.out.println("文件已存在");
 
 			stream = FileUtils.openOutputStream(file);
