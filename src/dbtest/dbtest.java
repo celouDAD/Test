@@ -16,6 +16,9 @@ public class dbtest {
 	/**
 	 * @param args
 	 */
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		dbDaoImp dao = new dbDaoImp();
 		String tbname = "geneid";
@@ -46,8 +49,8 @@ public class dbtest {
 						if (findResult.size() > 0) {
 							for (int j = 0; j < findResult.size(); j++) {
 								for (Map.Entry<String, Object> map2 : findResult.get(j).entrySet()) {
-									System.out.println();
-									//ew.stat(tbname1, p, (String)map2.getValue(), name, findResult.size());
+									System.out.println((String)map2.getValue());
+									ew.writeExcel(tbname1, p1, (String)map2.getValue(), name, findResult.size());
 								}
 							}
 						} else {
