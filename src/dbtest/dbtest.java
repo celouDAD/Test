@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class dbtest {
 	private static DBUtil util = new DBUtil();
-	private static ExcelWrite ew = new ExcelWrite();
+	private static ExcelHelper ew = new ExcelHelper();
 
 	/**
 	 * @param args
@@ -47,7 +47,7 @@ public class dbtest {
 							for (int j = 0; j < findResult.size(); j++) {
 								for (Map.Entry<String, Object> map2 : findResult.get(j).entrySet()) {
 									System.out.println();
-									ew.stat(tbname1, p, (String)map2.getValue(), name, findResult.size());
+									//ew.stat(tbname1, p, (String)map2.getValue(), name, findResult.size());
 								}
 							}
 						} else {
