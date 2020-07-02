@@ -29,8 +29,8 @@ public class ExcelHelper {
 	public static void main(String[] args) throws Exception {
 		ExcelHelper eh = new ExcelHelper();
 		//eh.readExecl("./source/p_adjust.xlsx");
-		eh.writeExcel("vs", "geneID", "p_adjust", "2223", 5);
-		//eh.addExcel("vs", "geneID", "p_adjust", "2023", 5);
+		eh.writeExcel("vs", "geneID_vs", "geneID","p_adjust", "2223");
+		//eh.addExcel("vs", "geneID", "p_adjust", "2024");
 
 	}
 
@@ -114,31 +114,33 @@ public class ExcelHelper {
 	 * @param times
 	 * @param filePath
 	 */
-	public static void writeExcel(String vs, String geneID, String p_adjust, String musName, int times) {
+	public static void writeExcel(String vs, String geneID_vs,String geneID, String p_adjust, String musName) {
 		XSSFWorkbook workbook = new XSSFWorkbook();
 		XSSFSheet sheet = workbook.createSheet("sheet");
 		XSSFRow firstRow = sheet.createRow(0);// 第一行表头
 		XSSFCell cells[] = new XSSFCell[4];
 
-		String[] titles = new String[] { "vs", "geneID", "p_adjust", "musName" };
+		String[] titles = new String[] { "vs", "geneID_vs","geneID", "p_adjust", "musName" };
 		// 循环设置表头信息
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 5; i++) {
 			cells[0] = firstRow.createCell(i);
 			cells[0].setCellValue(titles[i]);
 		}
 
 		// 追加数据
-		for (int i = 0; i < times; i++) {
-			Row nextrow = sheet.createRow(sheet.getLastRowNum()+1);
-			Cell cell2 = nextrow.createCell(0);
-			cell2.setCellValue(vs);
-			cell2 = nextrow.createCell(1);
-			cell2.setCellValue(geneID);
-			cell2 = nextrow.createCell(2);
-			cell2.setCellValue(p_adjust);
-			cell2 = nextrow.createCell(3);
-			cell2.setCellValue(musName);
-		}
+
+		Row nextrow = sheet.createRow(sheet.getLastRowNum() + 1);
+		Cell cell2 = nextrow.createCell(0);
+		cell2.setCellValue(vs);
+		cell2 = nextrow.createCell(2);
+		cell2.setCellValue(geneID_vs);
+		cell2 = nextrow.createCell(1);
+		cell2.setCellValue(geneID);
+		cell2 = nextrow.createCell(3);
+		cell2.setCellValue(p_adjust);
+		cell2 = nextrow.createCell(4);
+		cell2.setCellValue(musName);
+
 		OutputStream out = null;
 		try {
 			out = new FileOutputStream("./source/p_adjust.xlsx");
@@ -151,6 +153,7 @@ public class ExcelHelper {
 
 	/**
 	 * 追加行
+	 * 
 	 * @param vs
 	 * @param geneID
 	 * @param p_adjust
@@ -158,8 +161,7 @@ public class ExcelHelper {
 	 * @param times
 	 * @throws IOException
 	 */
-	public static void addExcel(String vs, String geneID, String p_adjust, String musName, int times)
-			throws IOException {
+	public static void addExcel(String vs, String geneID_vs,String geneID, String p_adjust, String musName) throws IOException {
 		FileInputStream in = new FileInputStream("./source/p_adjust.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(in);
 		XSSFSheet sheet = workbook.getSheetAt(0);
@@ -173,20 +175,20 @@ public class ExcelHelper {
 		 */
 		System.out.println(sheet.getLastRowNum());
 		// 追加数据
-		for (int i = 0; i < times; i++) {
-			System.out.println(times);
-			Row nextrow = sheet.createRow(sheet.getLastRowNum()+1);
-			Cell cell2 = nextrow.createCell(0);
-			cell2.setCellValue(vs);
-			cell2 = nextrow.createCell(1);
-			cell2.setCellValue(geneID);
-			cell2 = nextrow.createCell(2);
-			cell2.setCellValue(p_adjust);
-			cell2 = nextrow.createCell(3);
-			cell2.setCellValue(musName);
-		}
+		Row nextrow = sheet.createRow(sheet.getLastRowNum() + 1);
+		Cell cell2 = nextrow.createCell(0);
+		cell2.setCellValue(vs);
+		cell2 = nextrow.createCell(2);
+		cell2.setCellValue(geneID_vs);
+		cell2 = nextrow.createCell(1);
+		cell2.setCellValue(geneID);
+		cell2 = nextrow.createCell(3);
+		cell2.setCellValue(p_adjust);
+		cell2 = nextrow.createCell(4);
+		cell2.setCellValue(musName);
+		try
 
-		try {
+		{
 			out.flush();
 			workbook.write(out);
 			out.close();

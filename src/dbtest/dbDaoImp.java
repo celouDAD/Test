@@ -41,7 +41,7 @@ public class dbDaoImp implements dbDao {
 
 	@Override
 	public List<Map<String, Object>> getObjs(String tbname, Object[] params,int type) {
-		String sql = "select p_adjust from " + tbname;
+		String sql = "select p_adjust,geneID from " + tbname;
 		String objstring="select ";
 		if(type==1) {
 			for(int i=0;i<params.length;i++) {
