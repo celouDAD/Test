@@ -29,7 +29,7 @@ public class ExcelHelper {
 	public static void main(String[] args) throws Exception {
 		ExcelHelper eh = new ExcelHelper();
 		//eh.readExecl("./source/p_adjust.xlsx");
-		eh.writeExcel("vs", "geneID_vs", "geneID","p_adjust", "2223");
+		eh.createExcel();
 		//eh.addExcel("vs", "geneID", "p_adjust", "2024");
 
 	}
@@ -114,7 +114,7 @@ public class ExcelHelper {
 	 * @param times
 	 * @param filePath
 	 */
-	public static void writeExcel(String vs, String geneID_vs,String geneID, String p_adjust, String musName) {
+	public static void createExcel() {
 		XSSFWorkbook workbook = new XSSFWorkbook();
 		XSSFSheet sheet = workbook.createSheet("sheet");
 		XSSFRow firstRow = sheet.createRow(0);// 第一行表头
@@ -127,19 +127,6 @@ public class ExcelHelper {
 			cells[0].setCellValue(titles[i]);
 		}
 
-		// 追加数据
-
-		Row nextrow = sheet.createRow(sheet.getLastRowNum() + 1);
-		Cell cell2 = nextrow.createCell(0);
-		cell2.setCellValue(vs);
-		cell2 = nextrow.createCell(2);
-		cell2.setCellValue(geneID_vs);
-		cell2 = nextrow.createCell(1);
-		cell2.setCellValue(geneID);
-		cell2 = nextrow.createCell(3);
-		cell2.setCellValue(p_adjust);
-		cell2 = nextrow.createCell(4);
-		cell2.setCellValue(musName);
 
 		OutputStream out = null;
 		try {
@@ -162,6 +149,9 @@ public class ExcelHelper {
 	 * @throws IOException
 	 */
 	public static void addExcel(String vs, String geneID_vs,String geneID, String p_adjust, String musName) throws IOException {
+		if(!fileExist("./source/p_adjust.xlsx")) {
+			createExcel();
+		}
 		FileInputStream in = new FileInputStream("./source/p_adjust.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(in);
 		XSSFSheet sheet = workbook.getSheetAt(0);
